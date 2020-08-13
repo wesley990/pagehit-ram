@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Page hit counter which saves data in memory.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "debug": "nodemon --trace-warnings ./index.js",
     "start": "node ./index.js",
