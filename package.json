@@ -18,7 +18,10 @@
     "url": "https://github.com/craigbuckler/pagehit-ram/issues"
   },
   "homepage": "https://github.com/craigbuckler/pagehit-ram#readme",
-  "dependencies": {},
+  "dependencies": {
+    "nodemon": "^2.0.4",
+    "small-static-server": "^1.0.1"
+  },
   "devDependencies": {
     "eslint": "^7.6.0",
     "eslint-config-standard": "^14.1.1",
