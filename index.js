@@ -1,24 +1,23 @@
 // main application
-
 'use strict'
 
-const
-  // default HTTP port
-  port = 3000
-
 // Node.js modules
-const http = require('http')
-const url = require('url')
+import { createServer } from 'http'
+import { URL } from 'url'
+// HTTP response
+import httpResponse from './lib/httpresponse.js'
+import Pagehit from './lib/pagehit.js'
+
+// default HTTP port
+const port = 3000
 
 // page counter object
-const pagehit = new (require('./lib/pagehit'))()
-
-// HTTP response
-const httpResponse = require('./lib/httpresponse')
+const pagehit = new Pagehit()
 
 // new server
-http.createServer((req, res) => {
+createServer((req, res) => {
   // get referring page count
+  // console.log(req)
   const count = pagehit.count(req)
 
   // error: referring page not found
@@ -28,7 +27,7 @@ http.createServer((req, res) => {
   }
 
   // send appropriate response
-  const uri = url.URL(req.url).pathname
+  const uri = new URL(req.url, `http://${req.headers.host}`).pathname
   switch (uri) {
     // Ajax counter
     case '/counter.json':
