@@ -28,7 +28,7 @@ http.createServer((req, res) => {
   }
 
   // send appropriate response
-  const uri = url.parse(req.url).pathname
+  const uri = url.URL(req.url).pathname
   switch (uri) {
     // Ajax counter
     case '/counter.json':
